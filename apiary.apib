@@ -39,23 +39,6 @@ This API defines a single point of access to Uliza system resources.
             ]
         }
 
-### Retrieve a campaign [GET /campaigns/{id}]
-
-+ Response 200 (application/json)
-
-        {
-            "id": 2,
-            "name": "Paza Sauti",
-            "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post.",                   
-            "start_date": "2015-11-27T14:40:51.620Z",
-            "end_date": "2015-11-27T14:40:51.620Z",
-            "stats": {
-                "total_responses": 11773,
-                "unique_respondents": 6787,
-                "polls": 4
-            }
-        }
-
 ### Create a new campaign [POST]
 
 Register a campaign.
@@ -81,6 +64,27 @@ Register a campaign.
                 "name": "Paza Sauti",
                 "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post."
             }
+
+### Retrieve a campaign [GET /campaigns/{id}]
+
++ Response 200 (application/json)
+
+        {
+            "id": 2,
+            "name": "Paza Sauti",
+            "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post.",                   
+            "start_date": "2015-11-27T14:40:51.620Z",
+            "end_date": "2015-11-27T14:40:51.620Z",
+            "stats": {
+                "total_responses": 11773,
+                "unique_respondents": 6787,
+                "polls": 4
+            }
+        }
+
+### Delete a campaign [DELETE /campaigns/{id}]
+
+### Update a campaign [PUT /campaigns/{id}]
 
 ## Regions [/regions]
 
