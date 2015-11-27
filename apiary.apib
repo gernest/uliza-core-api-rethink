@@ -7,12 +7,23 @@ This API defines a single point of access to Uliza system resources.
 
 ## Campaigns [/campaigns]
 
-### List all campaigns [GET]
+### List all campaigns [GET /campaigns/{?limit,offset}]
+
++ Parameters
+    + limit (optional) - limit=25 means, ‘return a maximum of 25 records’
+    + offset (optional) - offset=50 means, ‘skip the first 50 records’
 
 + Response 200 (application/json)
 
         {
-            "campaigns": [
+            "metadata": {
+                "results": { 
+                    "count": 227,
+                    "offset": 50,
+                    "limit": 25
+                }
+            },        
+            "results": [
                 {
                     "id": 2,
                     "name": "Paza Sauti",
@@ -78,7 +89,7 @@ Register a campaign.
 + Response 200 (application/json)
 
         {
-            "regions": [
+            "results": [
                 {
                     "name": "Dar es Salaam"
                 },
@@ -98,7 +109,7 @@ Register a campaign.
 + Response 200 (application/json)
 
         {
-            "providers": [
+            "results": [
                 {
                 },
                 {
@@ -115,7 +126,7 @@ Register a campaign.
 + Response 200 (application/json)
 
         {
-            "attributes": [
+            "results": [
                 {
                 },
                 {
@@ -132,7 +143,7 @@ Register a campaign.
 + Response 200 (application/json)
 
         {
-            "participants": [
+            "results": [
                 {
                 },
                 {
@@ -149,7 +160,7 @@ Register a campaign.
 + Response 200 (application/json)
 
         {
-            "surveys": [
+            "results": [
                 {
                     "published_at": "2015-11-27T14:40:51.620Z",
                     "title": "What is your favorite food?",
