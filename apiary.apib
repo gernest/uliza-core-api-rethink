@@ -14,7 +14,9 @@ TODO
         {
             "campaigns": [
                 {
-                    "name": "Agripoll",
+                    "id": 2,
+                    "name": "Paza Sauti",
+                    "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post.",                   
                     "start_date": "2015-11-27T14:40:51.620Z",
                     "end_date": "2015-11-27T14:40:51.620Z",
                     "stats": {
@@ -25,6 +27,32 @@ TODO
                 }
             ]
         }
+
+### Create a new campaign [POST]
+
+Register a campaign.
+
++ Request (application/json)
+
+        {
+            "name": "Paza Sauti",
+            "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post."
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /campaigns/2
+
+    + Body
+
+            {
+                "id": 2,
+                "published_at": "2015-11-27T14:40:51.620Z",
+                "name": "Paza Sauti",
+                "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post."
+            }
 
 ## Region collection [/regions]
 
