@@ -5,7 +5,7 @@ HOST: http://polls.apiblueprint.org/
 
 This API defines a single point of access to Uliza system resources. 
 
-## Campaign collection [/campaigns]
+## Campaigns [/campaigns]
 
 ### List all campaigns [GET]
 
@@ -26,6 +26,23 @@ This API defines a single point of access to Uliza system resources.
                     }
                 }
             ]
+        }
+
+### Retrieve a campaign [GET campaigns/{id}]
+
++ Response 200 (application/json)
+
+        {
+            "id": 2,
+            "name": "Paza Sauti",
+            "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post.",                   
+            "start_date": "2015-11-27T14:40:51.620Z",
+            "end_date": "2015-11-27T14:40:51.620Z",
+            "stats": {
+                "total_responses": 11773,
+                "unique_respondents": 6787,
+                "polls": 4
+            }
         }
 
 ### Create a new campaign [POST]
@@ -54,7 +71,7 @@ Register a campaign.
                 "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post."
             }
 
-## Region collection [/regions]
+## Regions [/regions]
 
 ### List all regions [GET]
 
@@ -74,7 +91,7 @@ Register a campaign.
             ]
         }
 
-## Provider collection [/providers]
+## Providers [/providers]
 
 ### List all providers [GET]
 
@@ -91,7 +108,7 @@ Register a campaign.
             ]
         }
 
-## Attribute collection [/attributes]
+## Attributes [/attributes]
 
 ### List all attributes [GET]
 
@@ -108,7 +125,7 @@ Register a campaign.
             ]
         }
 
-## Participant collection [/participants]
+## Participants [/participants]
 
 ### List all participants [GET]
 
@@ -125,7 +142,7 @@ Register a campaign.
             ]
         }
 
-## Survey collection [/surveys]
+## Surveys [/surveys]
 
 ### List all surveys [GET]
 
