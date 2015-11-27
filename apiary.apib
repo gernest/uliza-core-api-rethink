@@ -1,0 +1,133 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Uliza Core
+
+TODO
+
+## Provider collection [/providers]
+
+### List all providers [GET]
+
++ Response 200 (application/json)
+
+        {
+            "providers": [
+                {
+                },
+                {
+                },
+                {
+                },
+            ]
+        }
+
+## Attribute collection [/attributes]
+
+### List all attributes [GET]
+
++ Response 200 (application/json)
+
+        {
+            "attributes": [
+                {
+                },
+                {
+                },
+                {
+                },
+            ]
+        }
+
+## Participant collection [/participants]
+
+### List all participants [GET]
+
++ Response 200 (application/json)
+
+        {
+            "participants": [
+                {
+                },
+                {
+                },
+                {
+                },
+            ]
+        }
+
+## Survey collection [/surveys]
+
+### List all surveys [GET]
+
++ Response 200 (application/json)
+
+        {
+            "surveys": [
+                {
+                    "published_at": "2015-11-27T14:40:51.620Z",
+                    "title": "What is your favorite food?",
+                    "id": 1,
+                    "choices": [
+                        {
+                            "choice": "Pizza",
+                            "votes": 2048
+                        }, {
+                            "choice": "Ugali",
+                            "votes": 1024
+                        }, {
+                            "choice": "Chips mayai",
+                            "votes": 512
+                        }, {
+                            "choice": "Pop-corn",
+                            "votes": 256
+                        }
+                    ]
+                }
+            ]
+        }
+
+### Create a new survey [POST]
+
+Register a survey.
+
++ Request (application/json)
+
+        {
+            "title": "What is your favorite food?",
+            "choices": [
+                "Pizza",
+                "Ugali",
+                "Chips mayai",
+                "Pop-corn"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /surveys/2
+
+    + Body
+
+            {
+                "published_at": "2015-11-27T14:40:51.620Z",
+                "title": "What is your favorite food?",
+                "id": 1,
+                "choices": [
+                    {
+                        "choice": "Pizza",
+                        "votes": 0
+                    }, {
+                        "choice": "Ugali",
+                        "votes": 0
+                    }, {
+                        "choice": "Chips mayai",
+                        "votes": 0
+                    }, {
+                        "choice": "Pop-corn",
+                        "votes": 0
+                    }
+                ]
+            }
