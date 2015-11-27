@@ -9,16 +9,25 @@ TODO
 
 ### List all campaigns [GET]
 
+## Region collection [/regions]
+
 + Response 200 (application/json)
 
         {
             "campaigns": [
                 {
+                    "name": "Agripoll",
+                    "start_date": "2015-11-27T14:40:51.620Z",
+                    "end_date": "2015-11-27T14:40:51.620Z",
+                    "stats": {
+                        "total_responses": 11773,
+                        "unique_respondents": 6787,
+                        "polls": 4
+                    }
                 }
             ]
         }
 
-## Region collection [/regions]
 
 ### List all regions [GET]
 
