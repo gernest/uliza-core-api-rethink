@@ -1,0 +1,273 @@
+FORMAT: 1A
+HOST: http://private-cbd2c-uliza.apiary-mock.com
+
+# Uliza Core
+
+These APIs define single points of access to Uliza system resources. 
+
+## WebSocket API
+
+The WebSocket API implements a simple message-oriented JSON protocol for streaming communications, sent over a persistent HTTP connection.
+
+### Connecting to a streaming endpoint
+
+### Message format
+
+```
+{
+    [message_type]: {
+        ...message
+    }
+}
+```
+
+## RESTful API
+
+## Campaigns [/campaigns]
+
+### List all campaigns [GET /campaigns{?limit,offset}]
+
++ Parameters
+    + limit (number, optional) - limit=25 means, ‘return a maximum of 25 records’
+    + offset (number, optional) - offset=50 means, ‘skip the first 50 records’
+
++ Response 200 (application/json)
+
+        {
+            "metadata": {
+                "resultset": { 
+                    "count": 227,
+                    "offset": 50,
+                    "limit": 25
+                }
+            },        
+            "results": [
+                {
+                    "id": 2,
+                    "name": "Paza Sauti",
+                    "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post.",                   
+                    "start_date": "2015-11-27T14:40:51.620Z",
+                    "end_date": "2015-11-27T14:40:51.620Z",
+                    "stats": {
+                        "total_responses": 11773,
+                        "unique_respondents": 6787,
+                        "questions": 4
+                    }
+                }
+            ]
+        }
+
+### Create a new campaign [POST]
+
++ Request (application/json)
+
+        {
+            "name": "Paza Sauti",
+            "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post."
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /campaigns/2
+
+    + Body
+
+            {
+                "id": 2,
+                "published_at": "2015-11-27T14:40:51.620Z",
+                "name": "Paza Sauti",
+                "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post."
+            }
+
+### Retrieve a campaign [GET /campaigns/{id}]
+
++ Parameters
+    + id (number) - ID of the campaign in the form of an integer
+
++ Response 200 (application/json)
+
+        {
+            "id": 2,
+            "name": "Paza Sauti",
+            "description": "Paza Sauti focuses on common bean practices which are relevant to farmers across Tanzania. Bill and Melinda Gates grantee IITA and their project N2Africa are hosting this round of the Listening Post.",                   
+            "start_date": "2015-11-27T14:40:51.620Z",
+            "end_date": "2015-11-27T14:40:51.620Z",
+            "stats": {
+                "total_responses": 11773,
+                "unique_respondents": 6787,
+                "questions": 4
+            }
+        }
+
+### Delete a campaign [DELETE /campaigns/{id}]
+
++ Parameters
+    + id (number) - ID of the campaign in the form of an integer
+
+### Update a campaign [PUT /campaigns/{id}]
+
++ Parameters
+    + id (number) - ID of the campaign in the form of an integer
+
+## Surveys [/surveys]
+
+### List all surveys [GET]
+
++ Response 200 (application/json)
+
+        {
+            "results": [
+                {
+                    "published_at": "2015-11-27T14:40:51.620Z",
+                    "title": "What is your favorite food?",
+                    "id": 1,
+                    "choices": [
+                        {
+                            "choice": "Pizza",
+                            "votes": 2048
+                        }, {
+                            "choice": "Ugali",
+                            "votes": 1024
+                        }, {
+                            "choice": "Chips mayai",
+                            "votes": 512
+                        }, {
+                            "choice": "Pop-corn",
+                            "votes": 256
+                        }
+                    ]
+                }
+            ]
+        }
+
+### Create a new survey [POST]
+
++ Request (application/json)
+
+        {
+            "title": "What is your favorite food?",
+            "choices": [
+                "Pizza",
+                "Ugali",
+                "Chips mayai",
+                "Pop-corn"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /surveys/2
+
+    + Body
+
+            {
+                "published_at": "2015-11-27T14:40:51.620Z",
+                "title": "What is your favorite food?",
+                "id": 1,
+                "choices": [
+                    {
+                        "choice": "Pizza",
+                        "votes": 0
+                    }, {
+                        "choice": "Ugali",
+                        "votes": 0
+                    }, {
+                        "choice": "Chips mayai",
+                        "votes": 0
+                    }, {
+                        "choice": "Pop-corn",
+                        "votes": 0
+                    }
+                ]
+            }
+
+## Question [/questions]
+
+### List all questions [GET]
+
++ Response 200 (application/json)
+
+        {
+            "results": [
+                {
+                }
+            ]
+        }
+
+## Response [/responses]
+
+### List all responses [GET]
+
++ Response 200 (application/json)
+
+        {
+            "results": [
+                {
+                }
+            ]
+        }
+
+## Coverage tree [/coverage]
+
+### List all coverage trees
+
++ Response 200 (application/json)
+
+        {
+            "results": [
+                {
+                }
+            ]
+        }
+
+### Create a coverage tree
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+### Update a coverage tree
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+### Delete a coverage tree
+
+## Participants [/participants]
+
+### List all participants [GET]
+
++ Response 200 (application/json)
+
+        {
+            "results": [
+                {
+                },
+                {
+                },
+                {
+                },
+            ]
+        }
+
+## Attributes [/attributes]
+
+### List all attributes [GET]
+
++ Response 200 (application/json)
+
+        {
+            "results": [
+                {
+                },
+                {
+                },
+                {
+                },
+            ]
+        }
