@@ -1,7 +1,7 @@
 FORMAT: 1A
 HOST: http://private-cbd2c-uliza.apiary-mock.com
 
-# Uliza Core
+# Ulizza Core
 
 These APIs define single points of access to Uliza system resources. 
 
@@ -185,6 +185,22 @@ This API implements a simple message-oriented JSON protocol for streaming commun
                 ]
             }
 
+
+### List all responses for a survey [GET /surveys/{id}/responses]
+
++ Parameters
+    + id (number) - ID of the survey in the form of an integer
+
++ Response 200 (application/json)
+
+        {
+            "results": [
+                {
+                }
+            ]
+        }
+
+
 ## Question [/questions]
 
 ### List all questions [GET]
@@ -211,7 +227,7 @@ This API implements a simple message-oriented JSON protocol for streaming commun
             ]
         }
 
-## Coverage tree [/coverage]
+## Coverage trees [/coverage]
 
 ### List all coverage trees
 
