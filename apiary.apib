@@ -185,6 +185,22 @@ This API implements a simple message-oriented JSON protocol for streaming commun
                 ]
             }
 
+
+### List all responses for a survey [GET /surveys/{id}/responses]
+
++ Parameters
+    + id (number) - ID of the survey in the form of an integer
+
++ Response 200 (application/json)
+
+        {
+            "results": [
+                {
+                }
+            ]
+        }
+
+
 ## Question [/questions]
 
 ### List all questions [GET]
