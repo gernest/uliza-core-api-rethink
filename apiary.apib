@@ -111,13 +111,24 @@ This API implements a message-oriented JSON protocol for streaming communication
 + Parameters
     + id (number) - ID of the campaign in the form of an integer
 
-## Surveys [/surveys]
+## Surveys 
 
-### List all surveys [GET]
+### List all surveys [GET /surveys{?limit,offset}]
+
++ Parameters
+    + limit (number, optional) - limit=25 means, ‘return a maximum of 25 records’
+    + offset (number, optional) - offset=50 means, ‘skip the first 50 records’
 
 + Response 200 (application/json)
 
         {
+            "metadata": {
+                "resultset": { 
+                    "count": 227,
+                    "offset": 50,
+                    "limit": 25
+                }
+            },        
             "results": [
                 {
                     "published_at": "2015-11-27T14:40:51.620Z",
@@ -186,7 +197,9 @@ This API implements a message-oriented JSON protocol for streaming communication
             }
 
 
-### List all answers for a survey [GET /surveys/{id}/answers]
+### List all answers for a survey [GET /surveys/{id}/answers{?limit,offset}]
+
++ Parameters
 
 + Parameters
     + id (number) - ID of the survey in the form of an integer
@@ -194,6 +207,13 @@ This API implements a message-oriented JSON protocol for streaming communication
 + Response 200 (application/json)
 
         {
+            "metadata": {
+                "resultset": { 
+                    "count": 227,
+                    "offset": 50,
+                    "limit": 25
+                }
+            },        
             "results": [
                 {
                 }
@@ -214,9 +234,24 @@ This API implements a message-oriented JSON protocol for streaming communication
             ]
         }
 
-## Answer [/answers]
+### Create a new question [POST]
 
-### List all answers [GET]
++ Response 200 (application/json)
+
+### Update a question [PUT]
+
++ Response 200 (application/json)
+
+### Delete a question [DELETE]
+
++ Response 200 (application/json)
+
+## Answers
+
+### List all answers for a question [GET questions/{id}/answers]
+
++ Parameters
+    + id (number) - ID of the question in the form of an integer
 
 + Response 200 (application/json)
 
@@ -227,36 +262,10 @@ This API implements a message-oriented JSON protocol for streaming communication
             ]
         }
 
-## Coverage trees [/coverage]
 
-### List all coverage trees
+## Participants
 
-+ Response 200 (application/json)
-
-        {
-            "results": [
-                {
-                }
-            ]
-        }
-
-### Create a coverage tree
-
-+ Request (application/json)
-
-+ Response 201 (application/json)
-
-### Update a coverage tree
-
-+ Request (application/json)
-
-+ Response 201 (application/json)
-
-### Delete a coverage tree
-
-## Participants [/participants]
-
-### List all participants [GET]
+### List all participants [GET /participants]
 
 + Response 200 (application/json)
 
@@ -271,9 +280,9 @@ This API implements a message-oriented JSON protocol for streaming communication
             ]
         }
 
-## Attributes [/attributes]
+## Attributes
 
-### List all attributes [GET]
+### List all attributes [GET /attributes]
 
 + Response 200 (application/json)
 
@@ -287,3 +296,32 @@ This API implements a message-oriented JSON protocol for streaming communication
                 },
             ]
         }
+
+### Create a new attribute [POST /attributes]
+
+### Update an attribute [PUT /attributes/{id}]
+
++ Parameters
+    + id (number) - ID of the attribute in the form of an integer
+
+### Delete an attribute [DELETE /attributes/{id}]
+
++ Parameters
+    + id (number) - ID of the attribute in the form of an integer
+
+## Users [/users]
+
+### List all users [GET /users]
+
+### Create a new user [POST /users]
+
+### Update a user [PUT /users/{id}]
+
++ Parameters
+    + id (number) - ID of the user in the form of an integer
+
+
+### Delete a user [DELETE /users/{id}]
+
++ Parameters
+    + id (number) - ID of the user in the form of an integer
