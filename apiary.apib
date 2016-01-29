@@ -4,7 +4,6 @@ HOST: http://private-cbd2c-uliza.apiary-mock.com
 # Uliza Core
 
 The Uliza Core API specifies points of access to Uliza system resources. 
-
 ## WebSocket API
 
 This API implements a message-oriented JSON protocol for streaming communications, sent over a persistent WebSocket connection.
@@ -22,6 +21,10 @@ This API implements a message-oriented JSON protocol for streaming communication
 ```
 
 ## RESTful API
+
+### Basic REST terminology
+
+A *resources* is the main abstraction in RESTful API design. A resource is an object with a type, associated data, and methods that operate on it. Apart from resources themselves, the RESTful resource model also defines relationships between and operations on these resources. 
 
 ## Campaigns [/campaigns]
 
@@ -111,7 +114,7 @@ This API implements a message-oriented JSON protocol for streaming communication
 + Parameters
     + id (number) - ID of the campaign in the form of an integer
 
-## Surveys 
+## Surveys [/surveys]
 
 ### List all surveys [GET /surveys{?limit,offset}]
 
@@ -153,7 +156,7 @@ This API implements a message-oriented JSON protocol for streaming communication
             ]
         }
 
-### Create a new survey [POST]
+### Create a new survey [POST /surveys]
 
 + Request (application/json)
 
@@ -200,8 +203,6 @@ This API implements a message-oriented JSON protocol for streaming communication
 ### List all answers for a survey [GET /surveys/{id}/answers{?limit,offset}]
 
 + Parameters
-
-+ Parameters
     + id (number) - ID of the survey in the form of an integer
 
 + Response 200 (application/json)
@@ -223,11 +224,22 @@ This API implements a message-oriented JSON protocol for streaming communication
 
 ## Question [/questions]
 
-### List all questions [GET]
+### List all questions [GET /questions{?limit,offset}]
+
++ Parameters
+    + limit (number, optional) - limit=25 means, ‘return a maximum of 25 records’
+    + offset (number, optional) - offset=50 means, ‘skip the first 50 records’
 
 + Response 200 (application/json)
 
         {
+            "metadata": {
+                "resultset": { 
+                    "count": 227,
+                    "offset": 50,
+                    "limit": 25
+                }
+            },        
             "results": [
                 {
                 }
@@ -246,16 +258,25 @@ This API implements a message-oriented JSON protocol for streaming communication
 
 + Response 200 (application/json)
 
-## Answers
+## Answers [/answers]
 
-### List all answers for a question [GET questions/{id}/answers]
+### List all answers for a question [GET questions/{id}/answers{?limit,offset}]
 
 + Parameters
     + id (number) - ID of the question in the form of an integer
+    + limit (number, optional) - limit=25 means, ‘return a maximum of 25 records’
+    + offset (number, optional) - offset=50 means, ‘skip the first 50 records’
 
 + Response 200 (application/json)
 
         {
+            "metadata": {
+                "resultset": { 
+                    "count": 227,
+                    "offset": 50,
+                    "limit": 25
+                }
+            },        
             "results": [
                 {
                 }
@@ -263,13 +284,24 @@ This API implements a message-oriented JSON protocol for streaming communication
         }
 
 
-## Participants
+## Participants [/participants]
 
-### List all participants [GET /participants]
++ Parameters
+    + limit (number, optional) - limit=25 means, ‘return a maximum of 25 records’
+    + offset (number, optional) - offset=50 means, ‘skip the first 50 records’
+
+### List all participants [GET /participants{?limit,offset}]
 
 + Response 200 (application/json)
 
         {
+            "metadata": {
+                "resultset": { 
+                    "count": 227,
+                    "offset": 50,
+                    "limit": 25
+                }
+            },        
             "results": [
                 {
                 },
@@ -280,7 +312,7 @@ This API implements a message-oriented JSON protocol for streaming communication
             ]
         }
 
-## Attributes
+## Attributes [/attributes]
 
 ### List all attributes [GET /attributes]
 
@@ -320,8 +352,8 @@ This API implements a message-oriented JSON protocol for streaming communication
 + Parameters
     + id (number) - ID of the user in the form of an integer
 
-
 ### Delete a user [DELETE /users/{id}]
 
 + Parameters
     + id (number) - ID of the user in the form of an integer
+
