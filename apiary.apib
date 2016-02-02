@@ -22,11 +22,13 @@ This API implements a message-oriented JSON protocol for streaming communication
 
 ## RESTful API
 
-### Basic REST 
+### Basic REST terminology
 
-A *resource* is the main abstraction in RESTful API design. A resource is an object with a type, associated data, and methods that operate on it. Apart from resources themselves, the RESTful resource model also defines relationships between and operations on these resources. 
+A *resource* is the main abstraction in RESTful API design. It is an object with a type and associated data, which is being operated on by various methods. In this API, resources are modeled as JSON objects.
 
-Resources can be grouped into *collections*. Collections are homogeneous and unordered. 
+Information that describes the available resources types and their behavior is referred to as the API *resource model*. Apart from resources themselves, the RESTful resource model also defines relationships between, and operations on these resources. RESTful implementations make use of standards like HTTP, and the methods most commonly used to implement a RESTful API are the standard HTTP verbs; GET, POST, PUT, and DELETE. Relationships are expressed as hyperlinks.
+
+Resources can be grouped into *collections*. Collections are homogeneous (i.e., contains only one type of resource) and unordered. Collections are also considered as resources. 
 
 #### Guidelines
 
@@ -114,6 +116,8 @@ For guidelines and examples, see [White House Web API Standards](https://github.
 
 + Parameters
     + id (number) - ID of the campaign in the form of an integer
+
++ Response 204 
 
 ### Update a campaign [PUT /campaigns/{id}]
 
@@ -205,30 +209,7 @@ For guidelines and examples, see [White House Web API Standards](https://github.
                 ]
             }
 
-
-### List all answers for a survey [GET /surveys/{id}/answers{?limit,offset}]
-
-+ Parameters
-    + id (number) - ID of the survey in the form of an integer
-
-+ Response 200 (application/json)
-
-        {
-            "metadata": {
-                "resultset": { 
-                    "count": 227,
-                    "offset": 50,
-                    "limit": 25
-                }
-            },        
-            "results": [
-                {
-                }
-            ]
-        }
-
-
-## Question [/questions]
+## Question 
 
 ### List all questions [GET /questions{?limit,offset}]
 
@@ -264,8 +245,6 @@ For guidelines and examples, see [White House Web API Standards](https://github.
 
 + Response 200 (application/json)
 
-## Answers 
-
 ### List all answers for a question [GET questions/{id}/answers{?limit,offset}]
 
 + Parameters
@@ -288,7 +267,6 @@ For guidelines and examples, see [White House Web API Standards](https://github.
                 }
             ]
         }
-
 
 ## Participants [/participants]
 
